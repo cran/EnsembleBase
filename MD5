@@ -1,7 +1,8 @@
-0fc226ac95b09e2bc42325aab959ccbc *DESCRIPTION
-fe2dc26341df26340aaf6280d6d8dfec *NAMESPACE
+448f73e2f4522d739443cc91156a1df0 *ChangeLog
+b1dccb8256f4bffe976945523dec1381 *DESCRIPTION
+53a352eef27c24a4c8cb00c4afc774b7 *NAMESPACE
 d2fd0dac7b8962c84d14b60ab054ff22 *R/aaa.R
-aabc474fb0dbb7bf98e96b3c1486450d *R/baselearners.R
+25318ceb100bd0c0aa39db345c7b5de9 *R/baselearners.R
 910c42e934b4be43a06bb06f8b7ddfd6 *R/integrators.R
 ebb272bbd3118b898d5e05de3f3d120f *R/regression_gbm.R
 4cf3a3a8bd71dbc657832e9cdad2ec74 *R/regression_knn.R

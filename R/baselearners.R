@@ -172,6 +172,7 @@ Regression.CV.Batch.Fit <- function(instance.list, formula, data, ncores=1, file
       flush.console()
       return (rettmp)
     }
+    stopImplicitCluster()
     if (print.level>=1) cat("binding predictions from all base learners...")
     sapply(1:njobs, function(i) {
       pred[,i] <<- ret[[i]]@pred
@@ -194,6 +195,7 @@ predict.Regression.CV.Batch.FitObj <- function(object, ..., ncores=1) {
     registerDoParallel(ncores)
     predmat <- unname(foreach(ii=1:length(object@fitobj.list), .combine=cbind, .options.multicore=list(preschedule=FALSE)) %dopar%
       predict(object@fitobj.list[[ii]], ...))
+    stopImplicitCluster()
   }
   return (predmat)
 }
@@ -299,6 +301,7 @@ Regression.Batch.Fit <- function(config.list, formula, data, ncores=1, filemetho
       flush.console()
       return (rettmp)
     }
+    stopImplicitCluster()
     if (print.level>=1) cat("binding predictions from all base learners...")
     sapply(1:njobs, function(i) {
       pred[,i] <<- ret[[i]]@pred
@@ -320,6 +323,7 @@ predict.Regression.Batch.FitObj <- function(object, ..., ncores=1) {
     registerDoParallel(ncores)
     predmat <- unname(foreach(ii=1:length(object@fitobj.list), .combine=cbind, .options.multicore=list(preschedule=FALSE)) %dopar%
       predict(object@fitobj.list[[ii]], ...))
+    stopImplicitCluster()
   }
   return (predmat)
 }

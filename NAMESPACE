@@ -8,6 +8,7 @@ import(kknn)
 #importFrom(kknn,kknn)
 #import(doParallel)
 importFrom(doParallel,registerDoParallel)
+importFrom(doParallel,stopImplicitCluster)
 import(methods)
 importFrom(foreach,foreach,'%dopar%')
 

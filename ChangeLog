@@ -1,0 +1,3 @@
+Changes since version 0.7
+  * Added stopImplicitCluster() at end of all foreach regions to deal with package example crashes on CRAN Windows test servers, per Uwe's suggestion.
+
