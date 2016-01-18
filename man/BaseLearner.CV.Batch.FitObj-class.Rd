@@ -16,6 +16,7 @@ Classes for containing base learner batch CV training output.
     \item{\code{filemethod}:}{Object of class \code{"logical"}, the boolean flag indicating whether estimation objects are saved to files or help in memory.}
     \item{\code{tmpfiles}:}{Object of class \code{"OptionalCharacter"}, list of temporary files used for storing estimation objects (if any).}
     \item{\code{tmpfiles.index.list}:}{Object of class \code{"list"}, with elements \code{start} and \code{end}, holding the start and end indexes into the tempfiles vector for each of the base learner instances trained.}
+    \item{\code{tvec}:}{Execution times for each base learner in the batch. Note: Currently implemented for serial execution only.}
     In addition, \code{Regression.CV.Batch.FitObj} contains the following slots:
     \item{\code{pred}:}{Object of class \code{"matrix"}, with each column being the training-set prediction for one of base learner instances.}
     \item{\code{y}:}{Object of class \code{"OptionalNumeric"}, holding the response variable values for training set. This slot can be \code{NULL} for memory efficiency purposes.}

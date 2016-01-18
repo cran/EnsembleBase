@@ -31,7 +31,10 @@ setMethod("BaseLearner.Fit", "NNET.Regression.Config",
     pred <- predict(est)
     if (y.range>0) pred <- as.vector(pred*y.range+y.min)
     else pred <- as.vector(pred+y.min)
-    if (!is.null(tmpfile)) save(est, file=tmpfile, compress=FALSE)
+    if (!is.null(tmpfile)) {
+      save(est, file=tmpfile, compress=FALSE)
+      rm(est); gc()
+    }
     ret <- NNET.Regression.FitObj(config=object
       , est=if (is.null(tmpfile)) est else tmpfile
       , pred=pred, y.range=y.range, y.min=y.min)
@@ -45,6 +48,7 @@ predict.NNET.Regression.FitObj <- function(object, newdata=NULL, ...) {
   newpred <- as.vector(predict(object@est, newdata=newdata))
   if (object@y.range>0) newpred <- newpred*object@y.range+object@y.min
   else newpred <- newpred+object@y.min
+  rm(object); gc()
   return (newpred)
 }
 

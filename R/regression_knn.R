@@ -21,7 +21,10 @@ setMethod("BaseLearner.Fit", "KNN.Regression.Config",
     y <- data[,all.vars(formula)[1]]
     est <- kknn(formula, data, data, k=object@k, kernel=object@kernel)
     pred <- est$fitted.values
-    if (!is.null(tmpfile)) save(est, file=tmpfile, compress=FALSE)
+    if (!is.null(tmpfile)) {
+      save(est, file=tmpfile, compress=FALSE)
+      rm(est); gc()
+    }
     ret <- KNN.Regression.FitObj(config=object
       , est=if (is.null(tmpfile)) est else tmpfile
       , pred=pred, formula=formula, data=data)
@@ -33,6 +36,7 @@ predict.KNN.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newreg <- kknn(object@formula, object@data, newdata, k=object@config@k, kernel=object@config@kernel)
+  rm(object); gc()
   return (newreg$fitted.values)
 }
 

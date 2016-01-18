@@ -20,7 +20,10 @@ setMethod("BaseLearner.Fit", "SVM.Regression.Config",
     y <- data[,respVar]
     est <- svm(formula, data, kernel=object@kernel, cost=object@cost, epsilon=object@epsilon)
     pred <- as.vector(predict(est))
-    if (!is.null(tmpfile)) save(est, file=tmpfile, compress=FALSE)
+    if (!is.null(tmpfile)) {
+      save(est, file=tmpfile, compress=FALSE)
+      rm(est); gc()
+    }
     ret <- SVM.Regression.FitObj(config=object
       , est=if (is.null(tmpfile)) est else tmpfile
       , pred=pred)
@@ -32,6 +35,7 @@ predict.SVM.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newpred <- as.vector(predict(object@est, newdata=newdata, na.action=na.pass))
+  rm(object); gc()
   return (newpred)
 }
 

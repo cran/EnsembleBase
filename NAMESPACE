@@ -1,5 +1,11 @@
 #exportPattern("^[[:alpha:]]+")
 
+importFrom("graphics", "legend", "plot", "points")
+importFrom("stats", ".getXlevels", "cor", "delete.response",
+           "model.frame", "model.matrix", "model.response", "na.fail",
+           "na.pass", "predict", "terms")
+importFrom("utils", "flush.console")
+  
 importFrom(gbm,gbm,predict.gbm)
 importFrom(nnet,nnet)
 importFrom(e1071,svm)
@@ -11,6 +17,8 @@ importFrom(doParallel,registerDoParallel)
 importFrom(doParallel,stopImplicitCluster)
 import(methods)
 importFrom(foreach,foreach,'%dopar%')
+importFrom(glmnet, glmnet)
+importFrom(bartMachine, bartMachine)
 
 ## utils.R
 export(generate.partition, generate.partitions
@@ -67,7 +75,13 @@ S3method(predict, RF.Regression.FitObj)
 exportClasses(SVM.Regression.Config, SVM.Regression.FitObj)
 S3method(predict, SVM.Regression.FitObj)
 
+# PENREG
+exportClasses(PENREG.Regression.Config, PENREG.Regression.FitObj)
+S3method(predict, PENREG.Regression.FitObj)
 
+# BART
+exportClasses(BART.Regression.Config, BART.Regression.FitObj)
+S3method(predict, BART.Regression.FitObj)
 
 
 

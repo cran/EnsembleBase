@@ -24,7 +24,10 @@ setMethod("BaseLearner.Fit", "RF.Regression.Config",
       , nodesize=object@nodesize
       , mtry=max(floor(object@mtry.mult*length(varnames)/3), 1), do.trace=print.level>=1, keep.forest=T)
     pred <- as.vector(est$predicted)
-    if (!is.null(tmpfile)) save(est, file=tmpfile, compress=FALSE)
+    if (!is.null(tmpfile)) {
+      save(est, file=tmpfile, compress=FALSE)
+      rm(est); gc()
+    }
     ret <- RF.Regression.FitObj(config=object
       , est=if (is.null(tmpfile)) est else tmpfile
       , pred=pred)
@@ -36,6 +39,7 @@ predict.RF.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newpred <- as.vector(predict(object@est, newdata=newdata))
+  rm(object); gc()
   return (newpred)
 }
 

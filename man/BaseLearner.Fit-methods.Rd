@@ -7,6 +7,8 @@
 \alias{BaseLearner.Fit,NNET.Regression.Config-method}
 \alias{BaseLearner.Fit,RF.Regression.Config-method}
 \alias{BaseLearner.Fit,SVM.Regression.Config-method}
+\alias{BaseLearner.Fit,PENREG.Regression.Config-method}
+\alias{BaseLearner.Fit,BART.Regression.Config-method}
 \title{Generic S4 Method for Fitting Base Learners}
 \description{
  Each base learner must provide its concrete implementation of this generic method.
@@ -45,6 +47,12 @@ BaseLearner.Fit(object, formula, data, tmpfile=NULL, print.level=1, ...)
 }
 
 \item{\code{signature(object = "SVM.Regression.Config")}}{
+%%  ~~describe this method here~~
+}
+\item{\code{signature(object = "PENREG.Regression.Config")}}{
+%%  ~~describe this method here~~
+}
+\item{\code{signature(object = "BART.Regression.Config")}}{
 %%  ~~describe this method here~~
 }
 }}
