@@ -35,7 +35,7 @@ predict.SVM.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newpred <- as.vector(predict(object@est, newdata=newdata, na.action=na.pass))
-  rm(object); gc()
+  #rm(object); gc()
   return (newpred)
 }
 

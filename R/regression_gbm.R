@@ -37,7 +37,7 @@ predict.GBM.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newpred <- predict(object@est, newdata=newdata, n.trees=object@config@n.trees)
-  rm(object); gc()
+  #rm(object); gc()
   return (newpred)
 }
 

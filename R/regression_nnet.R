@@ -48,7 +48,7 @@ predict.NNET.Regression.FitObj <- function(object, newdata=NULL, ...) {
   newpred <- as.vector(predict(object@est, newdata=newdata))
   if (object@y.range>0) newpred <- newpred*object@y.range+object@y.min
   else newpred <- newpred+object@y.min
-  rm(object); gc()
+  #rm(object); gc()
   return (newpred)
 }
 

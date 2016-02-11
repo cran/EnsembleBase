@@ -39,7 +39,7 @@ predict.RF.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newpred <- as.vector(predict(object@est, newdata=newdata))
-  rm(object); gc()
+  #rm(object); gc()
   return (newpred)
 }
 

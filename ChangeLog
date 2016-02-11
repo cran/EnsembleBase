@@ -1,3 +1,6 @@
+Changes in 1.0.1
+  * Removed rm() and gc() lines inside predict methods to avoid excessive overhead, especially in parallel execution.
+
 Changes in 1.0.0
   * Revised thread scheduling framework to include random and task.length methods
   * Added penealized regression as a base learner

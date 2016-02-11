@@ -36,7 +36,7 @@ predict.KNN.Regression.FitObj <- function(object, newdata=NULL, ...) {
   if (is.null(newdata)) return (object@pred)
   if (is.character(object@est)) object@est <- load.object(object@est)
   newreg <- kknn(object@formula, object@data, newdata, k=object@config@k, kernel=object@config@kernel)
-  rm(object); gc()
+  #rm(object); gc()
   return (newreg$fitted.values)
 }
 

@@ -56,7 +56,7 @@ predict.BART.Regression.FitObj <- function(object, newdata=NULL, ...) {
   X <- model.matrix(Terms, mf, contrasts.arg = object@mm$contrasts)
   
   newpred <- as.numeric(predict(object@est, new_data = as.data.frame(X)))
-  rm(object); gc()
+  #rm(object); gc()
   return (newpred)
 }
 
