@@ -1,3 +1,9 @@
+Changes in 1.0.4
+  * Added Author@R field to DESCRIPTION file.
+
+Changes in 1.0.3
+  * Fixed small typos and errors in documentation files.
+
 Changes in 1.0.2
   * Changed maintainer email address.
 

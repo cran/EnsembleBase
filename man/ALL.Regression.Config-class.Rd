@@ -36,7 +36,7 @@ These objects are typically constructed via calls to \code{\link{make.configs}} 
     For \code{GBM.Regression.Config}:
     \item{\code{n.trees}:}{Object of class \code{"numeric"}, defining the number of trees to fit.}
     \item{\code{interaction.depth}:}{Object of class \code{"numeric"}, defining th maximum depth of variable interactions.}
-    \item{code{shrinkage}:}{Object of class \code{"numeric"}, defining the shrinkage parameter applied to each tree in expansion.}
+    \item{\code{shrinkage}:}{Object of class \code{"numeric"}, defining the shrinkage parameter applied to each tree in expansion.}
     \item{\code{bag.fraction}:}{Object of class \code{"numeric"}, defining the fraction of training set observations randomly selected to propose the next tree in the expansion.}
     For \code{PENREG.Regression.Config}:
     \item{\code{alpha}:}{Object of class \code{"numeric"}, defining the mix of L1 and L2 penalty. Must be between 0.0 and 1.0.}

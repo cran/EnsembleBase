@@ -20,4 +20,3 @@
 }
 }}
 \keyword{methods}
-\keyword{ ~~ other possible keyword(s) ~~ }
